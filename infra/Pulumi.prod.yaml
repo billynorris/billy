@@ -1,0 +1,10 @@
+config:
+  aws:region: eu-west-2
+  # billy:domain: billynorris.co.uk
+  # billy:dns-zone: billynorris.co.uk
+
+  billy:domains: 
+    - fqdn: billynorris.co.uk
+      hostedZone: billynorris.co.uk
+    - fqdn: billynorris.gay
+      hostedZone: billynorris.gay
