@@ -1,0 +1,22 @@
+{
+  "name": "@billynorris/api-auth",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@billynorris/config": "workspace:*"
+  },
+  "peerDependencies": {
+    "hono": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "hono": "^4.5.0",
+    "typescript": "^5.5.4"
+  }
+}

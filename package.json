@@ -1,0 +1,17 @@
+{
+  "name": "billynorris-platform",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Multi-app platform hosted under billynorris.co.uk (and billynorris.gay)",
+  "packageManager": "pnpm@8.13.1",
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "preview": "pnpm --filter @billynorris/infra preview",
+    "up": "pnpm --filter @billynorris/infra up",
+    "deploy": "pnpm build && pnpm --filter @billynorris/infra up"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

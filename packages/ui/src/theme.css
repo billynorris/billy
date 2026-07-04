@@ -1,0 +1,118 @@
+/* Design tokens. Default theme + pride skin (applied on *.gay via data-theme). */
+:root,
+:root[data-theme="default"] {
+  --bg: #0d0f12;
+  --surface: #16191f;
+  --text: #f3f5f7;
+  --muted: #9aa3ad;
+  --accent: #4f8cff;
+  --accent-2: #4f8cff;
+  --border: #262b33;
+  --radius: 14px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+:root[data-theme="pride"] {
+  --accent: #e40303;
+  --accent-2: #ff8c00;
+  --pride: linear-gradient(
+    90deg,
+    #e40303,
+    #ff8c00,
+    #ffed00,
+    #008026,
+    #004dff,
+    #750787
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* A rainbow accent bar that only renders meaningfully in the pride theme. */
+.pride-ribbon {
+  height: 6px;
+  width: 100%;
+  background: var(--pride, var(--accent));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+/* LoginGate */
+.login-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  display: grid;
+  gap: 14px;
+}
+.login-card h1 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+}
+.login-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.login-card label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.login-card input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  font: inherit;
+}
+.login-card input:focus {
+  outline: none;
+  border-color: var(--accent);
+}

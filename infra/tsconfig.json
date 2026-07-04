@@ -1,18 +1,10 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "outDir": "bin",
-        "target": "es2016",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "experimentalDecorators": true,
-        "pretty": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
-        "forceConsistentCasingInFileNames": true
-    },
-    "files": [
-        "index.ts"
-    ]
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "bin",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2020"
+  },
+  "include": ["index.ts", "platform/**/*.ts", "apps/**/*.ts"]
 }

@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "billy",
+      "username": "billy",
+      "password": "YouAreGay123",
+      "displayName": "Billy Norris",
+      "config": {
+        "thirdspace": {
+          "token": "",
+          "id": "454973",
+          "sig": "7fd96f66e9f6f6e1d442cb8372fbf5af94625a8ec8706dc6f9761724f47ce9e4",
+          "clubIds": [],
+          "defaultClubId": 39
+        },
+        "hevy": {
+          "refreshToken": "8oIi0KblnvZ63ZKxxfDmUCe/vznRmc+knavaKEf/adHnE0r6cfUAfs9v7DQLxrhg",
+          "username": "billynorris"
+        }
+      }
+    },
+    {
+      "id": "coach",
+      "username": "coach",
+      "password": "CHANGE_ME_COACH_PASSWORD",
+      "displayName": "Coach",
+      "config": {
+        "lifting": {
+          "viewUserId": "billy"
+        }
+      }
+    }
+  ]
+}

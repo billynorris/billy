@@ -1,0 +1,54 @@
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+/* In the pride theme, paint the heading with the rainbow gradient. */
+:root[data-theme="pride"] .hero h1 {
+  background: var(--pride);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.app-card {
+  color: var(--text);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.app-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.app-card h2 {
+  margin: 0 0 6px;
+}
+.app-card p {
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+.go {
+  color: var(--accent);
+  font-weight: 600;
+}

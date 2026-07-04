@@ -1,0 +1,435 @@
+/*
+ * Lift Coach styling. Builds on the platform theme tokens (theme.css) and adds
+ * a few analytics-specific tokens + component classes. Chart data colours live
+ * in components/charts/theme.ts; theme switching (pride) only affects chrome.
+ */
+:root {
+  --surface-2: #1d212a;
+  --positive: #4ac99b;
+  --negative: #f07178;
+  --warning: #e8b860;
+  --chart-accent: #63a2ff;
+}
+
+/* ---------- layout / shell ---------- */
+.shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+}
+.nav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.nav-item {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font: inherit;
+  padding: 7px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.nav-item:hover {
+  color: var(--text);
+}
+.nav-item.active {
+  background: var(--surface-2);
+  color: var(--text);
+}
+main {
+  flex: 1;
+  padding: 24px 0;
+}
+.foot {
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.coach-banner {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 10px;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* ---------- view scaffolding ---------- */
+.view {
+  display: grid;
+  gap: 20px;
+}
+.view-head h1 {
+  margin: 0 0 2px;
+  font-size: 1.25rem;
+}
+.view-head .sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.muted {
+  color: var(--muted);
+}
+.error {
+  color: var(--negative);
+}
+.empty,
+.loading {
+  display: grid;
+  place-items: center;
+  min-height: 160px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- panel (insight card) ---------- */
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 0;
+}
+.panel-title {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.panel-sub {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.panel-body {
+  padding: 16px;
+}
+
+/* ---------- stat tiles ---------- */
+.grid-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 720px) {
+  .grid-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.stat-value {
+  margin-top: 4px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.stat-delta {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* tone helpers */
+.pos {
+  color: var(--positive);
+}
+.neg {
+  color: var(--negative);
+}
+.warn {
+  color: var(--warning);
+}
+.accent {
+  color: var(--accent);
+}
+
+/* ---------- badges ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- segmented toggle ---------- */
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg);
+}
+.seg-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.seg-btn.active {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* ---------- generic lists ---------- */
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rows li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.rows li:first-child {
+  border-top: none;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- exercises view ---------- */
+.ex-layout {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 860px) {
+  .ex-layout {
+    grid-template-columns: 280px 1fr;
+  }
+}
+.ex-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 560px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.ex-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font: inherit;
+  padding: 11px 14px;
+  cursor: pointer;
+}
+.ex-list li:first-child .ex-item {
+  border-top: none;
+}
+.ex-item:hover {
+  background: var(--surface-2);
+}
+.ex-item.active {
+  background: var(--surface-2);
+}
+.ex-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ex-meta {
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+.mini {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.mini-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.mini-value {
+  margin-top: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- balance view ---------- */
+.split {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 860px) {
+  .split {
+    grid-template-columns: 1fr 360px;
+  }
+}
+.stack {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+/* ---------- history / sessions ---------- */
+.session-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.session-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.session-meta {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.session-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: right;
+}
+.session-vol {
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- muscle heatmap ---------- */
+.heatmap {
+  display: grid;
+  gap: 3px;
+  overflow-x: auto;
+}
+.hm-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+.hm-label {
+  font-size: 0.76rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.hm-cells {
+  display: flex;
+  gap: 3px;
+}
+.hm-cell {
+  flex: 1;
+  min-width: 14px;
+  height: 18px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--chart-accent) var(--fill, 0%), var(--bg));
+  border: 1px solid var(--border);
+}
+.hm-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.hm-swatch {
+  width: 16px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+/* ---------- AI coaching card ---------- */
+.ai-headline {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.ai-bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 0.88rem;
+}
+.ai-source {
+  margin-top: 12px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}

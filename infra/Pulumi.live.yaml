@@ -1,0 +1,8 @@
+config:
+  aws:region: eu-west-2
+  # Root domains. Hosted zones for these are created and managed by this stack
+  # (see platform/zones.ts); delegate them at your registrar using the exported
+  # `nameservers` output.
+  billy:rootDomains:
+    - billynorris.co.uk
+    - billynorris.gay

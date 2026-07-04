@@ -1,13 +1,19 @@
 {
-    "name": "billy",
-    "main": "index.ts",
-    "devDependencies": {
-        "@types/node": "^18"
-    },
-    "dependencies": {
-        "@pulumi/aws": "^6.0.0",
-        "@pulumi/aws-apigateway": "^2.1.1",
-        "@pulumi/awsx": "^2.0.2",
-        "@pulumi/pulumi": "^3.0.0"
-    }
+  "name": "@billynorris/infra",
+  "version": "0.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "preview": "pulumi preview",
+    "up": "pulumi up",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@pulumi/aws": "^6.50.0",
+    "@pulumi/pulumi": "^3.130.0",
+    "esbuild": "^0.23.1"
+  }
 }
